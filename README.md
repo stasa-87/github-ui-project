@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup Project
+
+First you must execute `npm install` then copy your github token to `src/config.js`.
+To start the project execute `npm run start`
+
 ## Available Scripts
 
 In the project directory, you can run:
