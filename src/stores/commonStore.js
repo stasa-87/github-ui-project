@@ -178,6 +178,8 @@ class commonStore {
 
         return gh.getIssues(owner, name)
             .editIssue(issue.number, {title, body})
+            //fast fix for github api requests cache
+            //issue found here https://github.com/octokit/rest.js/issues/890
             .then(() => {
                 return new Promise(resolve => setTimeout(() => resolve(null), 1000));
             })
@@ -193,6 +195,7 @@ class commonStore {
                     });
                 // return this.loadIssuesList(owner, name);
             })
+            //end fast fix
             .catch(err => {
 
                 this.errorMessage = err.message;
