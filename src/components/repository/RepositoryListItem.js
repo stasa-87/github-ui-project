@@ -14,6 +14,7 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction/L
 import Badge from "@material-ui/core/Badge/Badge";
 import Chip from "@material-ui/core/Chip/Chip";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import IconButton from "@material-ui/core/IconButton/IconButton";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -75,11 +76,14 @@ function RepositoryListItem(props) {
 
                 <Chip label={repository.language} className={classes.root} />
 
-                <Badge badgeContent={repository.stargazers_count } color="primary">
-                    {repository.isStarred ?
-                        <StarIcon onClick={handleUnStar(commonStore.profile.login, repository.name)} />
-                        : <StarBorder onClick={handleStar(commonStore.profile.login, repository.name)} />}
-                </Badge>
+                <IconButton aria-label="star">
+                    <Badge badgeContent={repository.stargazers_count } color="primary">
+                        {repository.isStarred ?
+                            <StarIcon onClick={handleUnStar(commonStore.profile.login, repository.name)} />
+                            : <StarBorder onClick={handleStar(commonStore.profile.login, repository.name)} />}
+                    </Badge>
+                </IconButton>
+
 
             </ListItemText>
             <ListItemSecondaryAction>
